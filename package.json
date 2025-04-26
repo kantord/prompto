@@ -1,0 +1,18 @@
+{
+  "name": "prompto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "common": "pnpm --filter common",
+    "backend": "pnpm --filter backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.1",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
