@@ -1,9 +1,9 @@
 import { applyWSSHandler } from '@trpc/server/adapters/ws';
-import ws from 'ws';
+import { WebSocketServer } from 'ws';                   // ✅ ESM-safe
 import { publicProcedure, router } from './trpc';
 import { z } from 'zod';
 
-const wss = new ws.Server({
+export const wss = new WebSocketServer({
   port: 3011,
 });
 

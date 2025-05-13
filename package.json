@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "common": "pnpm --filter common",
     "backend": "pnpm --filter backend"
   },
@@ -13,6 +13,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.8.1",
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@vitest/ui": "^3.1.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
   }
 }
