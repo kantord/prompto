@@ -1,24 +1,20 @@
 import { describe, beforeAll, afterAll, it, expect } from 'vitest';
 import { createWSClient, wsLink, createTRPCProxyClient } from '@trpc/client';
-import type { AppRouter } from '../src/index';
-import { wss } from '..';
+import { AppRouter, wss } from '..';
 
 
 let wsClient: ReturnType<typeof createWSClient>;
 let trpc: ReturnType<typeof createTRPCProxyClient<AppRouter>>;
 
 beforeAll(() => {
-  // 1  Create a raw WS client that talks to our dev server
   wsClient = createWSClient({ url: 'ws://localhost:3011' });
 
-  // 2  Wrap it in a tRPC proxy so we can call procedures
   trpc = createTRPCProxyClient<AppRouter>({
     links: [wsLink({ client: wsClient })],
   });
 });
 
 afterAll(() => {
-  // ⚠️  Without this Vitest would keep running because of open handles
   wsClient.close();
   wss.close();
 });
