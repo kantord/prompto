@@ -35,16 +35,4 @@ const handler = applyWSSHandler({
 export type AppRouter = typeof appRouter;
 
 
-wss.on('connection', (ws) => {
-  console.log(`➕➕ Connection (${wss.clients.size})`);
-  ws.once('close', () => {
-    console.log(`➖➖ Connection (${wss.clients.size})`);
-  });
-});
-
 console.log('✅ WebSocket Server listening on ws://localhost:3011');
-wss.on('SIGTERM', () => {
-  console.log('SIGTERM');
-  handler.broadcastReconnectNotification();
-  wss.close();
-});
